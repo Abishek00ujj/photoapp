@@ -14,6 +14,7 @@ function App() {
     const url = `https://api.unsplash.com/search/photos?page=${pageNumber}&query=${query}&client_id=${accessKey}`;
     try {
       const response = await axios.get(url);
+      console.table(response.data)
       setPhotos((prevPhotos) => [...prevPhotos, ...response.data.results]);
     } catch (e) {
       console.error(e);
